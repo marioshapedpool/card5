@@ -21,7 +21,7 @@ export interface Card {
 
 export interface CardStore {
   cards: Card[];
-  addCard: (card: Omit<Card, 'id'>) => Promise<void>;
+  addCard: (card: Omit<Card, 'id' | 'user_id' | 'created_at' | 'updated_at'>) => Promise<boolean>;
   updateCard: (cardId: string, updatedFields: Partial<Card>) => void;
   removeCard: (cardId: string) => void;
   clearCards: () => void;

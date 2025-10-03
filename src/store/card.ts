@@ -21,22 +21,24 @@ export const useCardStore = create<CardStore>((set, get) => ({
     }
   },
 
-  addCard: async (card) => {
+  addCard: async (
+    card: Omit<Card, 'id' | 'user_id' | 'created_at' | 'updated_at'>
+  ) => {
     set({ isLoading: true });
 
-    // 👇 el user_id se rellena automáticamente con auth.uid() en la policy
     const { data, error } = await supabase
       .from('cards')
-      .insert([{ ...card }]) // user_id no hace falta si usas policies correctas
+      .insert([{ ...card }])
       .select()
       .single();
 
     if (error) {
       set({ error: error.message, isLoading: false });
-      return;
+      return false;
     }
 
     set({ cards: [data as Card, ...get().cards], isLoading: false });
+    return true;
   },
 
   updateCard: async (cardId, updatedFields) => {

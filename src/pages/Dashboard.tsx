@@ -76,9 +76,12 @@ export default function Dashboard() {
             </div>
             <div className="p-6">
               <CardForm
-                onAddCard={(newCard) => {
-                  addCard(newCard);
-                  setIsFormOpen(false);
+                onAddCard={async (newCard) => {
+                  const success = await addCard(newCard);
+                  if (success) {
+                    setIsFormOpen(false);
+                  }
+                  return success;
                 }}
               />
             </div>
