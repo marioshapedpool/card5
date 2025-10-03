@@ -155,7 +155,7 @@ const CardBalanceBreakdownChart: React.FC<CardBalanceBreakdownChartProps> = ({
             barSize={28}
             className="transition-all duration-300 ease-in-out"
           >
-            {data.map((entry, index) => (
+            {data.map((_entry, index) => (
               <Cell
                 key={`cell-${index}`}
                 fill={colors[index % colors.length]}

@@ -78,7 +78,7 @@ export function CardForm({ onAddCard, onClose }: CardFormProps) {
         cut_off_date: new Date(cutOffDate),
         payment_deadline: new Date(paymentDeadline),
         network: network.trim(),
-        annual_fee: annualFee ? Number(annualFee) : null,
+        annual_fee: annualFee ? Number(annualFee) : 0,
         annual_fee_deadline: annualFeeDeadline
           ? new Date(annualFeeDeadline)
           : null,

@@ -316,7 +316,7 @@ const SuperCreditCardCalendar: React.FC<CreditCardCalendarProps> = ({
     time: t('calendar.time', 'dashboard'),
     event: t('calendar.event', 'dashboard'),
     noEventsInRange: t('calendar.noEventsInRange'),
-    showMore: (total: number) => t('calendar.showMore', { count: total }),
+
   };
 
   return (

@@ -7,7 +7,7 @@ export interface Card {
   cut_off_date: Date;
   payment_deadline: Date;
   network: string;
-  annual_fee?: number | null;
+  annual_fee: number;
   annual_fee_deadline?: Date | null;
   credit_line: number;
   current_balance: number;

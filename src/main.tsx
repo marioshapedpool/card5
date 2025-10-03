@@ -1,4 +1,3 @@
-import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { I18nProvider } from './i18n/i18nContext.tsx';
@@ -16,12 +15,12 @@ const allAppTranslationModules = [
 ];
 
 createRoot(document.getElementById('root')!).render(
-    <BrowserRouter>
-      <I18nProvider
-        initialLanguage="en"
-        translationModules={allAppTranslationModules}
-      >
-        <App />
-      </I18nProvider>
-    </BrowserRouter>
+  <BrowserRouter>
+    <I18nProvider
+      initialLanguage="en"
+      translationModules={allAppTranslationModules}
+    >
+      <App />
+    </I18nProvider>
+  </BrowserRouter>
 );
