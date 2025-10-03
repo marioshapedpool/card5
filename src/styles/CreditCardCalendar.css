@@ -1,0 +1,265 @@
+/* src/styles/CreditCardCalendar.css */
+
+/*
+  Base Styles for react-big-calendar to integrate with a modern Tailwind theme.
+  We aim for a clean, minimalistic look, overriding R-B-C's default heavy borders,
+  and focusing on subtle shadows and modern typography.
+
+  Note: Some R-B-C styles are very specific and might require `!important`
+  if Tailwind's utility classes are not sufficient, or if R-B-C's specificity
+  is higher.
+*/
+
+/* General calendar container adjustments */
+.rbc-calendar {
+  font-family: 'Inter', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; /* Modern font stack */
+  color: #374151; /* Tailwind gray-700 */
+  border: none; /* Remove default border */
+  border-radius: 0.5rem; /* Match Tailwind's rounded-lg */
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* Subtle shadow */
+}
+
+/* --- Header and Toolbar --- */
+
+/* Remove default R-B-C toolbar styles */
+.rbc-toolbar {
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.5rem; /* Add some padding */
+  border-bottom: 1px solid #e5e7eb; /* Tailwind border-gray-200 */
+}
+
+.rbc-toolbar .rbc-toolbar-label {
+  font-size: 1.5rem; /* h2 equivalent */
+  font-weight: 600; /* semi-bold */
+  color: #1f2937; /* Tailwind gray-900 */
+}
+
+/* Buttons in toolbar (Next, Prev, Today, View selectors) */
+/* We're mostly using Tailwind classes on these elements directly in JSX,
+   but these ensure R-B-C defaults don't interfere */
+.rbc-btn-group button {
+  border: none;
+  background-color: transparent; /* Reset default background */
+  color: inherit; /* Inherit text color */
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem; /* rounded-md */
+  font-weight: 500; /* medium */
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Current view button */
+/* This style might be less relevant if you apply active/inactive styles with Tailwind
+   classes directly, but good as a fallback or if R-B-C adds a class */
+.rbc-btn-group button.rbc-active {
+  background-color: #3b82f6 !important; /* Tailwind blue-500 */
+  color: white !important;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* subtle shadow */
+}
+/* Ensure hover states are clear */
+.rbc-btn-group button:hover:not(.rbc-active) {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+}
+
+/* --- Calendar Grid (Days, Weeks, Months) --- */
+
+/* Overall table structure */
+.rbc-month-view,
+.rbc-time-view {
+  border: none; /* Remove outer border */
+}
+
+/* Day headers (Mon, Tue, Wed...) */
+.rbc-header {
+  padding: 0.75rem 0;
+  text-align: center;
+  font-weight: 600; /* semi-bold */
+  color: #4b5563; /* Tailwind gray-600 */
+  border-bottom: 1px solid #e5e7eb; /* Subtle separator */
+  border-left: none; /* Remove left border */
+  border-right: none; /* Remove right border */
+}
+/* Remove right borders for headers for cleaner look */
+.rbc-header + .rbc-header {
+  border-left: none;
+}
+.rbc-rtl .rbc-header + .rbc-header {
+  border-right: none;
+}
+
+/* Individual day cells */
+.rbc-day-bg {
+  border-left: 1px solid #e5e7eb; /* Vertical separator */
+  border-bottom: 1px solid #e5e7eb; /* Horizontal separator */
+}
+/* Remove the first left border (already handled by outer container usually) */
+.rbc-row-segment .rbc-day-bg:first-child,
+.rbc-time-header-content > .rbc-row > div:first-child {
+  border-left: none;
+}
+
+/* Day number styling */
+.rbc-day-bg + .rbc-day-bg {
+  border-left: 1px solid #e5e7eb; /* Only left border for separation */
+}
+
+/* Current day highlight */
+.rbc-day-bg.rbc-today {
+  background-color: #eff6ff; /* Tailwind blue-50, a very light blue */
+  /* You might need !important if R-B-C is overriding with a strong inline style or high specificity */
+  opacity: 0.9; /* Slightly less opaque */
+}
+
+/* Hover effect for day cells if desired (R-B-C doesn't have this by default) */
+/* .rbc-day-bg:hover {
+  background-color: #f3f4f6;
+} */
+
+/* Off-range days (days from previous/next month) */
+.rbc-off-range-bg {
+  background-color: #f9fafb; /* Tailwind gray-50 */
+  opacity: 0.8; /* Slightly dimmed */
+}
+
+.rbc-off-range .rbc-day-bg {
+  background-color: transparent; /* Ensure no double background */
+}
+
+/* Day number in the corner */
+.rbc-date-cell {
+  padding: 0.5rem; /* Spacing */
+  text-align: right;
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* Tailwind gray-500 */
+  font-weight: 500; /* medium */
+}
+/* Highlight today's date number */
+.rbc-date-cell.rbc-current {
+  color: #1f2937; /* Tailwind gray-900 */
+  font-weight: 700; /* bold */
+}
+/* Style for off-range date cells */
+.rbc-off-range .rbc-date-cell {
+  color: #9ca3af; /* Tailwind gray-400 */
+}
+
+/* --- Events --- */
+
+/* Event background - use padding from your EventComponent if possible */
+.rbc-event {
+  background-color: transparent; /* Remove R-B-C's default event background */
+  border: none;
+  padding: 0; /* Let your EventComponent handle its own padding */
+  box-shadow: none; /* Remove default shadow */
+  margin-bottom: 2px; /* Small gap between events */
+  border-radius: 0.25rem; /* rounded-sm */
+}
+
+/* Ensure selected events don't get a default highlight */
+.rbc-event.rbc-selected {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Event content (where your text and circles are) */
+/* This style might be less necessary if you fully control it with EventComponent */
+.rbc-event-content {
+  font-size: 0.875rem; /* text-sm */
+  color: #1f2937; /* Tailwind gray-900 */
+  font-weight: 500; /* medium */
+  padding: 2px 4px; /* Small internal padding */
+  /* The color circles are inside, so this will apply to the text */
+}
+
+/* Events in month/week view */
+.rbc-month-row {
+  min-height: 100px; /* Ensure rows have enough height */
+}
+
+.rbc-show-more {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+  color: #3b82f6; /* Tailwind blue-500 */
+  border-radius: 0.25rem;
+  padding: 2px 4px;
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 600;
+  text-align: center;
+  margin-top: 4px; /* Small space from events above */
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.rbc-show-more:hover {
+  background-color: #e5e7eb; /* Tailwind gray-200 */
+}
+
+/* --- Time View (Week/Day) Specifics --- */
+
+/* Time column (e.g., 9 AM, 10 AM) */
+.rbc-time-slot {
+  border-top: 1px dashed #e5e7eb; /* Dashed line for time slots */
+  min-height: 40px; /* Ensure enough height for time slots */
+}
+.rbc-label {
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* Tailwind gray-500 */
+  padding: 0.5rem;
+}
+
+/* Current time indicator */
+.rbc-current-time-indicator {
+  background-color: #ef4444; /* Tailwind red-500 */
+  height: 2px;
+}
+
+/* Today's column in week view */
+.rbc-today {
+  background-color: #eff6ff; /* Tailwind blue-50 */
+}
+
+/* --- Agenda View (if enabled) --- */
+.rbc-agenda-view {
+  padding: 1rem;
+}
+
+.rbc-agenda-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rbc-agenda-table th {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-weight: 600;
+}
+
+.rbc-agenda-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.rbc-agenda-event {
+  color: #1f2937; /* Darker text for agenda events */
+  font-weight: 500;
+}
+
+.rbc-agenda-time {
+  color: #6b7280;
+}
+
+/* --- Responsive Adjustments --- */
+/* For smaller screens, R-B-C already handles a lot, but you can add specifics */
+/* @media (max-width: 768px) {
+  .rbc-toolbar .rbc-toolbar-label {
+    font-size: 1.25rem;
+  }
+  .rbc-toolbar .rbc-btn-group button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+} */

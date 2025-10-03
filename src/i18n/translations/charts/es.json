@@ -1,0 +1,17 @@
+{
+  "annual-fees-chart": {
+    "title": "Anualidades por Tarjeta",
+    "no-data": "No hay anualidades registradas para mostrar."
+  },
+  "credit-utilization-chart": {
+    "title": "Uso Total de Línea de Crédito",
+    "used": "Crédito Utilizado",
+    "available": "Crédito Disponible",
+    "no-data": "No hay datos de uso de crédito para mostrar."
+  },
+  "card-balance": {
+    "title": "Saldos Actuales por Tarjeta",
+    "no-balance": "No hay saldos actuales registrados para mostrar.",
+    "balance": "Usado"
+  }
+}

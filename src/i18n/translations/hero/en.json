@@ -1,0 +1,37 @@
+{
+  "hero_heading_part1": "Manage Your Credit Cards",
+  "hero_heading_part2": "Smarter",
+  "hero_description": "Track all your credit cards in one place. Never miss a payment deadline, monitor your credit lines, and stay on top of important dates effortlessly.",
+  "feature1": "Track multiple credit cards securely",
+  "feature2": "Calendar with payment reminders",
+  "feature3": "Visual dashboards and analytics",
+  "feature4": "Never miss a deadline again",
+  "cta_get_started": "Get Started Free",
+  "cta_view_demo": "View Demo",
+
+  "card_management_title": "Card Management",
+  "card_management_description": "Add, edit, and organize all your credit cards with important details like credit line and cut-off dates.",
+  "smart_calendar_title": "Smart Calendar",
+  "smart_calendar_description": "View all payment deadlines, cut-off dates, and annual fees in one organized calendar.",
+  "analytics_title": "Analytics",
+  "analytics_description": "Track total credit lines, number of cards, and get insights into your credit portfolio.",
+  "secure_private_title": "Secure & Private",
+  "secure_private_description": "Only store non-sensitive information. Your data is encrypted and protected.",
+
+  "stats_free_start": "Free to Start",
+  "stats_sensitive_data": "Sensitive Data Stored",
+  "stats_cards_manage": "Cards to Manage",
+
+  "how_it_works_heading": "How It Works",
+  "how_it_works_subheading": "Get started in three simple steps",
+  "step1_title": "Add Your Cards",
+  "step1_description": "Enter basic information like last 4 digits, bank name, credit line, and important dates.",
+  "step2_title": "Set Reminders",
+  "step2_description": "Our smart calendar automatically tracks cut-off dates, payment deadlines, and annual fees.",
+  "step3_title": "Monitor & Manage",
+  "step3_description": "View dashboards with your total credit available, number of cards, and upcoming payments.",
+
+  "cta_ready_heading": "Ready to Take Control?",
+  "cta_ready_description": "Join thousands of users who are managing their credit cards smarter. Start free today, no credit card required.",
+  "cta_ready_button": "Get Started Now"
+}

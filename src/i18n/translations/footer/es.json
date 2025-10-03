@@ -1,0 +1,23 @@
+{
+  "tagline": "Gestiona tus tarjetas de crédito de forma más inteligente. Controla pagos, fechas límite y líneas de crédito en un solo lugar.",
+  "product_heading": "Producto",
+  "dashboard_link": "Dashboard",
+  "about_link": "Acerca de",
+  "features_link": "Características",
+  "pricing_link": "Puedes apoyar este proyecto aquí :)",
+  "account_heading": "Cuenta",
+  "login_link": "Iniciar Sesión",
+  "signup_link": "Registrarse",
+  "support_link": "Soporte",
+  "faq_link": "Preguntas Frecuentes",
+  "legal_heading": "Legal",
+  "privacy_policy_link": "Política de Privacidad",
+  "terms_conditions_link": "Términos y Condiciones",
+  "security_link": "Seguridad",
+  "current_status_prefix": "Actualmente",
+  "current_status_free": "gratis",
+  "current_status_suffix": "con todas las características premium.",
+  "copyright_text": "Card5. Todos los derechos reservados.",
+  "made_with_love": "Hecho con",
+  "and_tailwind": "y Tailwind CSS"
+}

@@ -1,0 +1,17 @@
+{
+  "annual-fees-chart": {
+    "title": "Annual Fees by Card",
+    "no-data": "No annual fees recorded to display."
+  },
+  "credit-utilization-chart": {
+    "title": "Total Credit Line Utilization",
+    "used": "Used Credit",
+    "available": "Available Credit",
+    "no-data": "No credit utilization data to display."
+  },
+  "card-balance": {
+    "title": "Current Balances by Card",
+    "no-balance": "There are no current balances recorded to display.",
+    "balance": "balance"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "login": "Login",
+  "create_account": "Create Account",
+  "welcome": "Welcome",
+  "dashboard": "Dashboard",
+  "logout": "Log Out",
+  "get_premium": "Get Premium",
+  "premium_member": "Premium Member",
+  "change_language": "Change Language",
+  "close_session": "Close Session"
+}

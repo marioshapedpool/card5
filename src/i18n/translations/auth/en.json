@@ -1,0 +1,27 @@
+{
+  "login": {
+    "title": "Welcome Back",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "loginButton": "Login",
+    "loggingInButton": "Logging in...",
+    "passwordPlaceholder": "name@domain.com",
+    "orSeparator": "Or",
+    "googleButton": "Sign in with Google",
+    "errorGeneric": "An error occurred. Please try again.",
+    "errorInvalidCredentials": "Invalid credentials."
+  },
+  "register": {
+    "title": "Join us!",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "passwordPlaceholder": "name@domain.com",
+    "creatingAccount": "Creating account...",
+    "orSeparator": "Or",
+    "registerButton": "Register",
+    "accountCreatedConfirmation": "Account created! Please check your email to confirm your account.",
+    "registerWithGoogle": "Register with Google"
+  }
+}

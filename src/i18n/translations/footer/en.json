@@ -1,0 +1,23 @@
+{
+  "tagline": "Manage your credit cards smarter. Track payments, deadlines, and credit lines all in one place.",
+  "product_heading": "Product",
+  "dashboard_link": "Dashboard",
+  "about_link": "About",
+  "features_link": "Features",
+  "pricing_link": "You can support this project here :)",
+  "account_heading": "Account",
+  "login_link": "Login",
+  "signup_link": "Sign Up",
+  "support_link": "Support",
+  "faq_link": "FAQ",
+  "legal_heading": "Legal",
+  "privacy_policy_link": "Privacy Policy",
+  "terms_conditions_link": "Terms & Conditions",
+  "security_link": "Security",
+  "current_status_prefix": "Currently",
+  "current_status_free": "free",
+  "current_status_suffix": "with all premium features.",
+  "copyright_text": "Card5. All rights reserved.",
+  "made_with_love": "Made with",
+  "and_tailwind": "and Tailwind CSS"
+}

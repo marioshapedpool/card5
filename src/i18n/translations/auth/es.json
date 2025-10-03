@@ -1,0 +1,27 @@
+{
+  "login": {
+    "title": "Bienvenido de Nuevo",
+    "emailLabel": "Correo Electrónico",
+    "passwordLabel": "Contraseña",
+    "loginButton": "Iniciar Sesión",
+    "loggingInButton": "Iniciando sesión...",
+    "passwordPlaceholder": "nombre@dominio.com",
+    "orSeparator": "O también",
+    "googleButton": "Iniciar Sesión con Google",
+    "errorGeneric": "Ocurrió un error. Por favor, inténtalo de nuevo.",
+    "errorInvalidCredentials": "Credenciales inválidas."
+  },
+  "register": {
+    "title": "¡Únete!",
+    "emailLabel": "Correo Electrónico",
+    "passwordLabel": "Contraseña",
+    "confirmPasswordLabel": "Confirmar Contraseña",
+    "passwordsDoNotMatch": "Las contraseñas no coinciden",
+    "passwordPlaceholder": "nombre@dominio.com",
+    "creatingAccount": "Creando cuenta...",
+    "registerButton": "Registrarme",
+    "orSeparator": "O también",
+    "accountCreatedConfirmation": "¡Cuenta creada! Revisa tu correo para confirmar tu cuenta.",
+    "registerWithGoogle": "Registrarse con Google"
+  }
+}

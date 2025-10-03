@@ -1,0 +1,37 @@
+{
+  "hero_heading_part1": "Gestiona tus Tarjetas de Crédito de forma más",
+  "hero_heading_part2": "Inteligente",
+  "hero_description": "Rastrea todas tus tarjetas de crédito en un solo lugar. Nunca pierdas una fecha límite de pago, monitorea tus líneas de crédito y mantente al tanto de las fechas importantes sin esfuerzo.",
+  "feature1": "Rastrea múltiples tarjetas de crédito de forma segura",
+  "feature2": "Calendario con recordatorios de pago",
+  "feature3": "Paneles visuales y análisis",
+  "feature4": "Nunca más pierdas una fecha límite",
+  "cta_get_started": "Comenzar Gratis",
+  "cta_view_demo": "Ver Demo",
+
+  "card_management_title": "Gestión de Tarjetas",
+  "card_management_description": "Agrega, edita y organiza todas tus tarjetas de crédito con detalles importantes como la línea de crédito y las fechas de corte.",
+  "smart_calendar_title": "Calendario Inteligente",
+  "smart_calendar_description": "Consulta todas las fechas límite de pago, fechas de corte y tarifas anuales en un calendario organizado.",
+  "analytics_title": "Análisis",
+  "analytics_description": "Rastrea el total de líneas de crédito, el número de tarjetas y obtén información sobre tu cartera de crédito.",
+  "secure_private_title": "Seguro y Privado",
+  "secure_private_description": "Solo almacena información no sensible. Tus datos están cifrados y protegidos.",
+
+  "stats_free_start": "Gratis para Empezar",
+  "stats_sensitive_data": "Datos Sensibles Almacenados",
+  "stats_cards_manage": "Tarjetas para Gestionar",
+
+  "how_it_works_heading": "¿Cómo Funciona?",
+  "how_it_works_subheading": "Comienza en tres sencillos pasos",
+  "step1_title": "Agrega tus Tarjetas",
+  "step1_description": "Introduce información básica como los últimos 4 dígitos, nombre del banco, línea de crédito y fechas importantes.",
+  "step2_title": "Configura Recordatorios",
+  "step2_description": "Nuestro calendario inteligente rastrea automáticamente las fechas de corte, fechas límite de pago y tarifas anuales.",
+  "step3_title": "Monitorea y Gestiona",
+  "step3_description": "Visualiza paneles con tu crédito total disponible, número de tarjetas y próximos pagos.",
+
+  "cta_ready_heading": "¿Listo para Tomar el Control?",
+  "cta_ready_description": "Únete a miles de usuarios que gestionan sus tarjetas de crédito de forma más inteligente. Empieza gratis hoy, no se requiere tarjeta de crédito.",
+  "cta_ready_button": "Empezar Ahora"
+}
