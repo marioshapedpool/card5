@@ -1,3 +1,5 @@
+// src/i18n/i18nContext.tsx
+
 import React, {
   createContext,
   useState,
@@ -8,7 +10,7 @@ import React, {
 } from 'react';
 
 type Language = 'en' | 'es';
-type Translations = Record<string, any>;
+type Translations = Record<string, any>; // Puede ser más específico si sabes la estructura
 
 interface I18nContextType {
   language: Language;
@@ -19,18 +21,25 @@ interface I18nContextType {
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
-const loadModuleTranslations = async (
+// Función para cargar traducciones desde la carpeta 'public/' usando fetch
+const loadTranslationsFromPublic = async (
   lang: Language,
-  modulePath: string // e.g., 'features/dashboard/i18n'
+  namespace: string // e.g., 'navbar', 'auth', 'dashboard'
 ): Promise<Translations> => {
   try {
-    const module = await import(
-      /* @vite-ignore */ `../${modulePath}/${lang}.json`
-    );
-    return module.default;
+    // La URL es relativa a la raíz del sitio web desplegado.
+    // Vite sirve los archivos de 'public/' en la raíz.
+    const url = `/locales/${lang}/${namespace}.json`;
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data: Translations = await response.json();
+    return data;
   } catch (error) {
     console.warn(
-      `Failed to load translations for module ${modulePath} in ${lang}:`,
+      `Failed to load translations for namespace '${namespace}' in ${lang} from public folder:`,
       error
     );
     return {};
@@ -40,40 +49,49 @@ const loadModuleTranslations = async (
 interface I18nProviderProps {
   children: ReactNode;
   initialLanguage?: Language;
-  translationModules: string[];
+  translationNamespaces: string[]; // Cambiado de translationModules a translationNamespaces
 }
 
 export const I18nProvider: React.FC<I18nProviderProps> = ({
   children,
   initialLanguage = 'en',
-  translationModules,
+  translationNamespaces, // Renombrado de translationModules
 }) => {
   const [language, setLanguage] = useState<Language>(initialLanguage);
   const [allTranslations, setAllTranslations] = useState<
     Record<string, Translations>
-  >({}); // Ahora cada entrada es un objeto de traducción anidado
+  >({});
   const [isLoadingTranslations, setIsLoadingTranslations] = useState(false);
 
   useEffect(() => {
     const fetchAllTranslations = async () => {
       setIsLoadingTranslations(true);
       const newTranslations: Record<string, Translations> = {};
-      for (const modulePath of translationModules) {
-        const moduleName = modulePath.split('/').pop() || modulePath;
-        const loaded = await loadModuleTranslations(language, modulePath);
-        newTranslations[moduleName] = loaded;
+
+      if (!translationNamespaces || translationNamespaces.length === 0) {
+        setAllTranslations({});
+        setIsLoadingTranslations(false);
+        return;
       }
+
+      for (const namespace of translationNamespaces) {
+        const loaded = await loadTranslationsFromPublic(language, namespace);
+        newTranslations[namespace] = loaded; // Usamos el namespace como clave
+      }
+
       setAllTranslations(newTranslations);
       setIsLoadingTranslations(false);
     };
+
     fetchAllTranslations();
-  }, [language, translationModules]);
+    // Asegúrate de que los cambios en translationNamespaces también recarguen las traducciones
+  }, [language, translationNamespaces]);
 
   const changeLanguage = useCallback((lang: Language) => {
     setLanguage(lang);
   }, []);
 
-  // FUNCION 't' MEJORADA PARA CLAVES ANIDADAS
+  // La función 't' probablemente sigue siendo la misma, ya que maneja namespaces
   const t = useCallback(
     (key: string, namespace?: string): string => {
       let translationsToSearch: Translations | undefined;
@@ -81,59 +99,58 @@ export const I18nProvider: React.FC<I18nProviderProps> = ({
       if (namespace) {
         translationsToSearch = allTranslations[namespace];
       } else {
-        // Si no se especifica namespace, asumimos que es 'common' o el primer cargado
-        // Esto es una simplificación; para robustez, es mejor siempre especificar namespace
-        translationsToSearch =
-          allTranslations['common'] || Object.values(allTranslations)[0];
+        // Si no se especifica namespace, busca en el primer módulo cargado
+        // Considera usar un namespace por defecto 'common' si es posible
+        const firstNamespace = Object.keys(allTranslations)[0];
+        translationsToSearch = allTranslations[firstNamespace];
       }
 
       if (!translationsToSearch) {
         console.warn(
           `Namespace '${
-            namespace || 'default'
+            namespace || 'default/first'
           }' not found or translations not loaded.`
         );
-        return key; // Devuelve la clave si el namespace no existe
+        return key;
       }
 
-      // Función para navegar por un objeto anidado usando la notación de puntos
       const getNestedValue = (
         obj: Translations,
         path: string
       ): string | undefined => {
         const parts = path.split('.');
         let current: any = obj;
-        for (let i = 0; i < parts.length; i++) {
+
+        for (const part of parts) {
           if (current === undefined || current === null) {
             return undefined;
           }
-          current = current[parts[i]];
+          current = current[part];
         }
-        // Si el valor final es un objeto, eso es un error (significa que la clave
-        // apuntaba a un objeto anidado, no a una cadena final)
+
         if (typeof current === 'object' && current !== null) {
           console.warn(
             `Translation key '${path}' refers to an object, not a string.`
           );
           return undefined;
         }
+
         return current;
       };
 
-      // Intentar obtener la traducción anidada
       const translatedValue = getNestedValue(translationsToSearch, key);
 
-      // Si no se encuentra, devolver la clave original o un mensaje de error
       if (translatedValue === undefined) {
         console.warn(
           `Translation key '${key}' not found in namespace '${
-            namespace || 'default'
+            namespace || 'default/first'
           }'.`
         );
         return key;
       }
 
-      return translatedValue;
+      // Devuelve el valor traducido, o la clave si no es una cadena (esto podría ocurrir si la clave apunta a un objeto)
+      return typeof translatedValue === 'string' ? translatedValue : key;
     },
     [allTranslations]
   );
