@@ -1,8 +1,10 @@
-Card10 Project
+Card5 Project
 
-- [ ] Mix navbars
-- [ ] Improve Card Area
-- [ ] Improve registered cards table
-- [ ] Improve calendar features
-  - [ x ] handle views month, week, day
-  - [ x ] TO TEST: handle infer days_of_grace from cut-off and deadline Dates
+- [ X ] Change HTML title and icon
+- [ X ] Remove ko-fi donation
+- [ X ] Change terms & services to more proper
+- [ X ] Make footer simpler & functional
+- [ ] Make hero section 100% functional
+- [ ] Make it offline and no need to login/register
+- [ ] Add remove account functionality
+- [ ] Add custom domain card5.essmario.dev

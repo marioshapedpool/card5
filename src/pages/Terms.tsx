@@ -8,14 +8,13 @@ import {
   FileText,
   AlertCircle,
 } from 'lucide-react';
-import { useTranslation } from '../i18n/useTranslation'; // Importamos nuestro hook
+import { useTranslation } from '../i18n/useTranslation';
 
 export default function Terms() {
-  const { t, language } = useTranslation(); // Usamos el hook de traducción y el idioma
+  const { t, language } = useTranslation();
 
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  // Las FAQs ahora se construyen con las traducciones
   const faqs = [
     {
       question: t('faq1_question', 'terms'),
@@ -53,12 +52,8 @@ export default function Terms() {
   };
 
   return (
-    // Usamos un contenedor flex para el layout general
     <div className="flex flex-col min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 md:flex-row">
       <div className="flex-1 overflow-y-auto p-8 pb-24 md:pb-8 relative">
-        {' '}
-        {/* pb-24 para espacio al final en móvil, md:pb-8 para desktop */}
-        {/* Header */}
         <div className="bg-white border-b border-slate-200 mb-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <h1 className="text-4xl font-bold text-slate-900 mb-4">
@@ -126,41 +121,10 @@ export default function Terms() {
                 {t('support_intro', 'terms')}
               </p>
 
-              <div className="space-y-4">
-                <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
-                  <Mail className="h-5 w-5 text-indigo-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-medium text-slate-900 mb-1">
-                      {t('email_support_title', 'terms')}
-                    </h3>
-                    <p className="text-sm text-slate-600 mb-2">
-                      {t('email_support_description', 'terms')}
-                    </p>
-                    <a
-                      href="mailto:support@card5.com"
-                      className="text-sm text-indigo-600 hover:text-indigo-700 font-medium"
-                    >
-                      support@card5.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
-                  <HelpCircle className="h-5 w-5 text-indigo-600 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h3 className="font-medium text-slate-900 mb-1">
-                      {t('documentation_title', 'terms')}
-                    </h3>
-                    <p className="text-sm text-slate-600">
-                      {t('documentation_description', 'terms')}
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <div className="space-y-4"></div>
             </div>
           </section>
 
-          {/* Security Section */}
           <section id="security" className="scroll-mt-20">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
@@ -228,7 +192,6 @@ export default function Terms() {
             </div>
           </section>
 
-          {/* Privacy Policy Section */}
           <section id="privacy" className="scroll-mt-20">
             <div className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -269,24 +232,6 @@ export default function Terms() {
                   </h3>
                   <p className="text-slate-600 leading-relaxed">
                     {t('privacy_3_description', 'terms')}
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-slate-900 mb-2">
-                    {t('privacy_4_title', 'terms')}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    {t('privacy_4_description', 'terms')}
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-slate-900 mb-2">
-                    {t('privacy_5_title', 'terms')}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    {t('privacy_5_description', 'terms')}
                   </p>
                 </div>
               </div>
@@ -354,38 +299,11 @@ export default function Terms() {
                     {t('terms_5_description', 'terms')}
                   </p>
                 </div>
-
-                <div>
-                  <h3 className="font-semibold text-slate-900 mb-2">
-                    {t('terms_6_title', 'terms')}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    {t('terms_6_description', 'terms')}
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="font-semibold text-slate-900 mb-2">
-                    {t('terms_7_title', 'terms')}
-                  </h3>
-                  <p className="text-slate-600 leading-relaxed">
-                    {t('terms_7_description', 'terms')}
-                  </p>
-                </div>
               </div>
             </div>
           </section>
         </div>
       </div>
-
-      <aside className="w-full md:w-80 lg:w-96 flex-shrink-0 md:sticky md:top-0 h-64 md:h-screen overflow-hidden bg-white shadow-lg z-10 fixed bottom-0 left-0 right-0 md:right-0">
-        <iframe
-          id="kofiframe"
-          src="https://ko-fi.com/essmario/?hidefeed=true&widget=true&embed=true&preview=true"
-          className="border-none w-full h-full"
-          title="essmario"
-        ></iframe>
-      </aside>
     </div>
   );
 }

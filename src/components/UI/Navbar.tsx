@@ -48,9 +48,7 @@ export default function Navbar({
               </span>
             </Link>
 
-            {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-4">
-              {/* Auth Buttons (Not logged in) */}
               {!loading && !user && (
                 <>
                   <Link
@@ -71,21 +69,6 @@ export default function Navbar({
               {/* User Menu (Logged in) */}
               {!loading && user && (
                 <>
-                  {/* Premium Badge/Button */}
-                  {!isPremium ? (
-                    <button className="px-5 py-2 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-lg font-medium transition-colors duration-200 text-sm">
-                      <Crown size={16} className="inline mr-2" />
-                      {t('get_premium', 'navbar')}
-                    </button>
-                  ) : (
-                    <div className="flex items-center px-3 py-1.5 bg-emerald-50 border border-emerald-200 rounded-lg">
-                      <Crown size={14} className="text-emerald-600 mr-1.5" />
-                      <span className="text-emerald-700 font-medium text-sm">
-                        {t('premium_member', 'navbar')}
-                      </span>
-                    </div>
-                  )}
-
                   {/* Dashboard Link */}
                   <Link
                     to="/dashboard"

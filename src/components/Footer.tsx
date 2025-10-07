@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom';
-import { CreditCard, Github, Twitter, Mail, Heart } from 'lucide-react';
-import { useTranslation } from '../i18n/useTranslation'; // Importamos nuestro hook
+import { CreditCard, Github, Twitter, Heart } from 'lucide-react';
+import { useTranslation } from '../i18n/useTranslation';
 
 export default function Footer() {
-  const { t } = useTranslation(); // Usamos el hook de traducción
+  const { t } = useTranslation();
 
   return (
     <footer className="bg-slate-900 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
@@ -22,7 +21,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com/someuser"
+                href="https://github.com/marioshapedpool"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors"
@@ -31,7 +30,7 @@ export default function Footer() {
                 <Github className="h-5 w-5 text-slate-400" />
               </a>
               <a
-                href="https://x.com/someuser"
+                href="https://x.com/trsvrsal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors"
@@ -39,17 +38,9 @@ export default function Footer() {
               >
                 <Twitter className="h-5 w-5 text-slate-400" />
               </a>
-              <a
-                href="mailto:contact@card5.com"
-                className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="h-5 w-5 text-slate-400" />
-              </a>
             </div>
           </div>
 
-          {/* Product Links */}
           <div>
             <h3 className="text-sm font-semibold text-white mb-4">
               {t('product_heading', 'footer')}
@@ -63,34 +54,9 @@ export default function Footer() {
                   {t('dashboard_link', 'footer')}
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/about"
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
-                >
-                  {t('about_link', 'footer')}
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="#features"
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
-                >
-                  {t('features_link', 'footer')}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/terms#pricing"
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
-                >
-                  {t('pricing_link', 'footer')}
-                </a>
-              </li>
             </ul>
           </div>
 
-          {/* Account Links */}
           <div>
             <h3 className="text-sm font-semibold text-white mb-4">
               {t('account_heading', 'footer')}
@@ -181,7 +147,6 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-slate-400">

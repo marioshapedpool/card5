@@ -7,12 +7,12 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 import Footer from '../components/Footer';
-import { useTranslation } from '../i18n/useTranslation'; // Importamos nuestro hook
+import { useTranslation } from '../i18n/useTranslation';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
-  const { t } = useTranslation(); // Usamos el hook de traducción
+  const { t } = useTranslation();
 
-  // Array de características traducidas
   const features = [
     t('feature1', 'hero'),
     t('feature2', 'hero'),
@@ -20,7 +20,6 @@ export default function Home() {
     t('feature4', 'hero'),
   ];
 
-  // Array de pasos de "How It Works" traducidos
   const howItWorksSteps = [
     {
       step: '01',
@@ -41,10 +40,8 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-      {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
           <div className="space-y-8">
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
@@ -58,7 +55,6 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Features List */}
             <div className="space-y-3">
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-3">
@@ -68,22 +64,19 @@ export default function Home() {
               ))}
             </div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors shadow-sm">
+              <Link
+                to={'/dashboard'}
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors shadow-sm"
+              >
                 {t('cta_get_started', 'hero')}
                 <ArrowRight className="h-4 w-4" />
-              </button>
-              <button className="px-6 py-3 border border-slate-300 hover:bg-slate-50 text-slate-700 rounded-lg font-medium transition-colors">
-                {t('cta_view_demo', 'hero')}
-              </button>
+              </Link>
             </div>
           </div>
 
-          {/* Right Content - Feature Cards */}
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
-              {/* Card Management */}
               <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-3 hover:shadow-lg transition-shadow">
                 <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
                   <CreditCard className="h-6 w-6 text-indigo-600" />
@@ -96,7 +89,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Calendar */}
               <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-3 hover:shadow-lg transition-shadow mt-8">
                 <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
                   <Calendar className="h-6 w-6 text-emerald-600" />
@@ -109,7 +101,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Analytics */}
               <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-3 hover:shadow-lg transition-shadow">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                   <BarChart3 className="h-6 w-6 text-purple-600" />
@@ -122,7 +113,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Security */}
               <div className="bg-white rounded-2xl border border-slate-200 p-6 space-y-3 hover:shadow-lg transition-shadow mt-8">
                 <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
                   <Shield className="h-6 w-6 text-amber-600" />

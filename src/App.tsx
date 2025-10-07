@@ -6,7 +6,6 @@ import Confirm from './pages/Confirm';
 import Terms from './pages/Terms';
 import Dashboard from './pages/Dashboard';
 import useUser from './hooks/useUser';
-import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/UI/Navbar';
 
 export default function App() {
@@ -28,14 +27,7 @@ export default function App() {
         <Route path="/confirm" element={<Confirm />} />
         <Route path="/terms" element={<Terms />} />
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
