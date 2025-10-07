@@ -7,16 +7,18 @@ import Terms from './pages/Terms';
 import Dashboard from './pages/Dashboard';
 import useUser from './hooks/useUser';
 import Navbar from './components/UI/Navbar';
+import { useCardPersistence } from './hooks/useCardPersistence';
 
 export default function App() {
-  const { user, loading, signOut, isPremium } = useUser();
+  const { user, loading, isPremium } = useUser();
+  const { logout } = useCardPersistence();
 
   return (
     <div>
       <Navbar
         user={user}
         loading={loading}
-        signOut={signOut}
+        signOut={logout}
         isPremium={isPremium}
       />
 

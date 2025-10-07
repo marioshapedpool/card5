@@ -21,11 +21,19 @@ export interface Card {
 
 export interface CardStore {
   cards: Card[];
-  addCard: (card: Omit<Card, 'id' | 'user_id' | 'created_at' | 'updated_at'>) => Promise<boolean>;
+  addCard: (
+    card: Omit<Card, 'id' | 'user_id' | 'created_at' | 'updated_at'>
+  ) => Promise<boolean>;
   updateCard: (cardId: string, updatedFields: Partial<Card>) => void;
   removeCard: (cardId: string) => void;
   clearCards: () => void;
   fetchCards: () => Promise<void>;
+  setCards: (cards: Card[]) => void;
+  setLoading: (isLoading: boolean) => void;
+  setError: (error: string | null) => void;
+  addCardToState: (card: Card) => void;
+  updateCardInState: (cardId: string, updatedFields: Partial<Card>) => void;
+  removeCardFromState: (cardId: string) => void;
   isLoading: boolean;
   error: string | null;
 }

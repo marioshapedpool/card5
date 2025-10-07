@@ -6,6 +6,22 @@ export const useCardStore = create<CardStore>((set, get) => ({
   cards: [],
   isLoading: false,
   error: null,
+  setCards: (cards: Card[]) => set({ cards }),
+  setLoading: (isLoading: boolean) => set({ isLoading }),
+  setError: (error: string | null) => set({ error }),
+
+  addCardToState: (card: Card) =>
+    set((state) => ({ cards: [card, ...state.cards] })),
+
+  updateCardInState: (cardId: string, updatedFields: Partial<Card>) =>
+    set((state) => ({
+      cards: state.cards.map((c) =>
+        c.id === cardId ? { ...c, ...updatedFields } : c
+      ),
+    })),
+
+  removeCardFromState: (cardId: string) =>
+    set((state) => ({ cards: state.cards.filter((c) => c.id !== cardId) })),
 
   fetchCards: async () => {
     set({ isLoading: true });

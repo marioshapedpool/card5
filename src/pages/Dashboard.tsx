@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useCardStore } from '../store/card';
 import { CardForm } from '../components/cards/CardForm';
 import { CardList } from '../components/cards/CardList';
@@ -9,15 +9,14 @@ import Footer from '../components/Footer';
 import DashboardLayout from '../components/dashboard/DashboardLayout';
 import { useTranslation } from '../i18n/useTranslation';
 import clsx from 'clsx';
+import { useCardPersistence } from '../hooks/useCardPersistence';
 
 export default function Dashboard() {
   const { t } = useTranslation();
-  const { cards, addCard, updateCard, removeCard, fetchCards } = useCardStore();
+  const { cards } = useCardStore();
   const [isFormOpen, setIsFormOpen] = useState(false);
-
-  useEffect(() => {
-    fetchCards();
-  }, [fetchCards]);
+  const { handleAddCard, handleRemoveCard, handleUpdateCard } =
+    useCardPersistence();
 
   const totalCreditLine = cards.reduce(
     (sum, card) => sum + card.credit_line,
@@ -77,7 +76,7 @@ export default function Dashboard() {
             <div className="p-6">
               <CardForm
                 onAddCard={async (newCard) => {
-                  const success = await addCard(newCard);
+                  const success = await handleAddCard(newCard);
                   if (success) {
                     setIsFormOpen(false);
                   }
@@ -102,8 +101,8 @@ export default function Dashboard() {
           </h2>
           <CardList
             cards={cards}
-            onUpdateCard={updateCard}
-            onRemoveCard={removeCard}
+            onUpdateCard={handleUpdateCard}
+            onRemoveCard={handleRemoveCard}
           />
         </section>
 

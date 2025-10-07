@@ -157,10 +157,8 @@ export default function Navbar({
                 </div>
               )}
 
-              {/* Logged in - Mobile */}
               {!loading && user && (
                 <div className="space-y-3">
-                  {/* User Info Card */}
                   <div className="flex items-center gap-3 px-4 py-3 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center border border-slate-200">
                       <span className="text-slate-700 font-medium">
@@ -175,7 +173,6 @@ export default function Navbar({
                     </div>
                   </div>
 
-                  {/* Premium Badge/Button */}
                   {!isPremium ? (
                     <button className="w-full px-4 py-3 bg-amber-50 hover:bg-amber-100 border border-amber-200 text-amber-700 rounded-lg font-medium transition-colors text-sm">
                       <Crown size={16} className="inline mr-2" />
@@ -190,7 +187,6 @@ export default function Navbar({
                     </div>
                   )}
 
-                  {/* Dashboard Link */}
                   <Link
                     to="/dashboard"
                     className="flex items-center px-4 py-3 text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors duration-200 font-medium text-sm"
@@ -200,7 +196,6 @@ export default function Navbar({
                     {t('dashboard', 'navbar')}
                   </Link>
 
-                  {/* Logout Button */}
                   <button
                     onClick={signOut}
                     className="flex items-center w-full px-4 py-3 text-slate-600 hover:text-red-600 hover:bg-slate-50 rounded-lg transition-colors duration-200 font-medium text-sm"
